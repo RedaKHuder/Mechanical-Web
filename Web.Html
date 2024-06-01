@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Power BI Dashboard</title>
+    <script src="https://cdn.powerbi.com/libs/powerbi-client/2.10.0/powerbi.min.js"></script>
+</head>
+<body>
+    <div id="dashboardContainer" style="height:800px;"></div>
+
+    <script>
+        var models = window['powerbi-client'].models;
+        var embedConfiguration = {
+            type: 'dashboard',
+            id: 'ac3da479-aa88-40f1-9093-0020b59ecc69',
+            embedUrl: 'https://app.powerbi.com/groups/aea82cbf-7842-424f-8d3f-de052917a606/dashboards/ac3da479-aa88-40f1-9093-0020b59ecc69?experience=power-bi',
+            accessToken: 'your_embed_token',
+            tokenType: models.TokenType.Embed,
+            settings: {
+                filterPaneEnabled: false,
+                navContentPaneEnabled: false
+            }
+        };
+
+        var dashboardContainer = document.getElementById('dashboardContainer');
+        var powerbi = new window['powerbi-client'].service.Service();
+        powerbi.embed(dashboardContainer, embedConfiguration);
+    </script>
+</body>
+</html>
